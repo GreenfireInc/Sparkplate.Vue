@@ -17,7 +17,7 @@ export default defineConfig({
     electron([
       {
         // Main-Process entry file of the Electron App.
-        entry: 'background/main/index.ts',
+        entry: 'background/electron/main/index.ts',
         onstart(options) {
           if (process.env.VSCODE_DEBUG) {
             console.log(/* For `.vscode/.debug.script.mjs` */'[startup] Electron App')
