@@ -19,6 +19,13 @@ const url = process.env.VITE_DEV_SERVER_URL;
 const indexHtml = node_path.join(process.env.DIST, "index.html");
 async function createWindow() {
   win = new electron.BrowserWindow({
+    autoHideMenuBar: true,
+    width: 1280,
+    height: 800,
+    useContentSize: true,
+    minWidth: 1024,
+    minHeight: 768,
+    frame: true,
     title: "Main window",
     icon: node_path.join(process.env.PUBLIC, "favicon.ico"),
     webPreferences: {
