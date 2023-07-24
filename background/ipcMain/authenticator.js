@@ -6,7 +6,7 @@ ipcMain.handle('otpCheck', (event, params) => {
   return authenticator.check(token, secret)
 })
 
-ipcMain.handle('otpGenerateSecret', (event) => {
+ipcMain.handle('otpGenerateSecret', () => {
   return authenticator.generateSecret()
 })
 

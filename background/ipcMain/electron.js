@@ -21,7 +21,7 @@ ipcMain.handle('preloadAppData', () => {
   }
 })
 
-ipcMain.handle('appGetFunctional', (event, type) => {
+ipcMain.handle('appGetFunctional', () => {
   return process.env.functional
 })
 

@@ -7,15 +7,7 @@
  */
 
 'use strict'
-import {
-  app,
-  protocol,
-  BrowserWindow,
-  ipcMain,
-  dialog,
-  globalShortcut,
-  shell
-} from 'electron'
+import { app, protocol, BrowserWindow, ipcMain, dialog, shell } from 'electron'
 // import bugReporter from './logging/BugReporter'
 // import bugTracking from './electron/bugTracking'
 import path from 'path'
@@ -132,7 +124,7 @@ app.on('ready', async () => {
 
   // Add ipcMain handlers
   import('./ipcMain')
-    .then((_) => {
+    .then(() => {
       createWindow()
       setAppMenu()
     })

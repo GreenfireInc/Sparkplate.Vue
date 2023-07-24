@@ -1,9 +1,7 @@
 import tezos from '../blockchainApi/tezosInterface'
-import Tzstats from '../blockchainApi/tzstatsInterface'
 import Ed25519 from 'ed25519-hd-key'
 import { b58cencode, prefix } from '@taquito/utils'
 import bip39 from 'bip39'
-const tzstats = new Tzstats()
 
 export default {
   async generateWallet({ seed, derivationIndex }) {

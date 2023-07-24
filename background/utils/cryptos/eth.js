@@ -1,7 +1,5 @@
 import infura from '../blockchainApi/infura'
-import Alchemy from '../blockchainApi/alchemyInterface'
 import { Wallet, utils } from 'ethers'
-const alchemy = new Alchemy()
 
 export default {
   generateWallet({ seed, derivationIndex }) {
