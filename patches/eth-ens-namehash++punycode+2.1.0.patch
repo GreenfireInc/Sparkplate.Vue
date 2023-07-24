@@ -1,0 +1,15 @@
+diff --git a/node_modules/eth-ens-namehash/node_modules/punycode/punycode.es6.js b/node_modules/eth-ens-namehash/node_modules/punycode/punycode.es6.js
+index 9cee436..b460090 100644
+--- a/node_modules/eth-ens-namehash/node_modules/punycode/punycode.es6.js
++++ b/node_modules/eth-ens-namehash/node_modules/punycode/punycode.es6.js
+@@ -436,5 +436,9 @@ const punycode = {
+ 	'toASCII': toASCII,
+ 	'toUnicode': toUnicode
+ };
+-
++export const ucs2 = {
++  decode: ucs2decode,
++  encode: ucs2encode
++}
++export { ucs2decode, ucs2encode, decode, encode, toASCII, toUnicode };
+ export default punycode;

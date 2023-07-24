@@ -1,0 +1,92 @@
+@font-face {
+  font-family: 'Cookie';
+  src: url('/assets/fonts/Cookie-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Dancing Script';
+  src: url('/assets/fonts/DancingScript-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Muli';
+  src:
+    url('/assets/fonts/Muli-Regular.ttf') format('truetype'),
+    // url("/assets/fontsMuli-Italic.ttf") format("truetype"),
+    url('/assets/fonts/Muli-Medium.ttf') format('truetype'),
+    url('/assets/fonts/Muli-SemiBold.ttf') format('truetype'),
+    url('/assets/fonts/Muli-Bold.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Satisfy';
+  src: url('/assets/fonts/Satisfy-Regular.ttf') format('truetype');
+}
+@font-face {
+  font-family: 'Yellowtail';
+  src: url('/assets/fonts/Yellowtail-Regular.ttf') format('truetype');
+}
+
+html,
+body {
+  font-family:
+    'Muli',
+    -apple-system,
+    BlinkMacSystemFont,
+    'Segoe UI',
+    Roboto,
+    Oxygen,
+    Ubuntu,
+    Cantarell,
+    'Open Sans',
+    'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  color: #2c3e50;
+}
+
+.input-field {
+  @apply flex flex-col mb-5;
+
+  label {
+    @apply font-light mb-1 text-gray-600;
+  }
+
+  input,
+  textarea,
+  select {
+    @apply pb-1 border-b-2 border-gray-500;
+  }
+}
+
+.information {
+  max-height: 68vh;
+
+  h3 {
+    @apply text-lg font-semibold mb-1;
+
+    &:not(:first-child) {
+      @apply mt-6;
+    }
+  }
+
+  ol,
+  ul {
+    @apply pl-5;
+
+    li {
+      @apply list-disc mt-2;
+    }
+  }
+}
+
+#cursive_1 {
+  font-family: 'Yellowtail', cursive;
+}
+#cursive_2 {
+  font-family: 'Dancing Script', cursive;
+}
+#cursive_3 {
+  font-family: 'Satisfy', cursive;
+}
+#cursive_4 {
+  font-family: 'Cookie', cursive;
+}
