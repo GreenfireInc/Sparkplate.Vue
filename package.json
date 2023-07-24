@@ -147,6 +147,7 @@
     "vite": "^4.0.4",
     "vite-plugin-electron": "^0.11.1",
     "vite-plugin-electron-renderer": "^0.11.4",
+    "vite-plugin-eslint": "^1.8.1",
     "yorkie": "^2.0.0"
   },
   "browserslist": [
@@ -158,7 +159,10 @@
     "precommit": "lint-staged"
   },
   "lint-staged": {
-    "*.{js,vue}": ["eslint --cache --fix", "prettier --write"]
+    "*.{js,vue}": [
+      "eslint --cache --fix",
+      "prettier --write"
+    ]
   },
   "repository": {
     "type": "git",

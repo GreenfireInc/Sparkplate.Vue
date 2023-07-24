@@ -5,6 +5,7 @@ import { defineConfig } from 'vite'
 // Plugins
 import vue from '@vitejs/plugin-vue2'
 import electron from 'vite-plugin-electron'
+import eslintPlugin from 'vite-plugin-eslint'
 import pkg from './package.json'
 import alias from '@rollup/plugin-alias'
 
@@ -41,6 +42,7 @@ export default defineConfig({
   plugins: [
     alias(),
     vue(),
+    eslintPlugin(),
     electron([
       {
         // Main-Process entry file of the Electron App.

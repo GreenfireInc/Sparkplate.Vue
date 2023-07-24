@@ -417,7 +417,6 @@
 import { mapActions, mapState } from 'vuex'
 import csc from 'country-state-city'
 import cityTimezones from 'city-timezones'
-import EmailClientService from '@/service/emailClientService'
 import moment from 'moment'
 import 'moment-timezone'
 import cc from 'currency-codes'
