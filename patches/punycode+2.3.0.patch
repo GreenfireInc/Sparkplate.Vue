@@ -1,0 +1,14 @@
+diff --git a/node_modules/punycode/punycode.es6.js b/node_modules/punycode/punycode.es6.js
+index 244e1bf..afd46f0 100644
+--- a/node_modules/punycode/punycode.es6.js
++++ b/node_modules/punycode/punycode.es6.js
+@@ -440,5 +440,9 @@ const punycode = {
+ 	'toUnicode': toUnicode
+ };
+ 
++export const ucs2 = {
++  decode: ucs2decode,
++  encode: ucs2encode
++}
+ export { ucs2decode, ucs2encode, decode, encode, toASCII, toUnicode };
+ export default punycode;
