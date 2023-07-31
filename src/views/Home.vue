@@ -18,7 +18,7 @@
       </div>
 
       <div class="flex-center">
-        <a href="http://Greenfire.io.org/" target="_blank">
+        <a href="http://greenfire.io/" target="_blank">
           <img
             src="/assets/icons/greenfire.svg"
             class="logo Greenfire"
