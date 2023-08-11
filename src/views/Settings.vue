@@ -28,6 +28,10 @@
       <!-- email content -->
 
       <misc v-if="activeTab === 'misc'" />
+
+      <!-- interface content -->
+      <interface-settings v-if="activeTab === 'interface'" />
+      <!-- interface content -->
     </div>
   </div>
 </template>
@@ -39,6 +43,7 @@ import Misc from '@/components/settings/Misc.vue'
 import SecuritySettings from '@/components/settings/SecuritySettings.vue'
 import EmailSettings from '@/components/settings/EmailSettings.vue'
 import NetworkStatus from '@/components/settings/NetworkStatus.vue'
+import InterfaceSettings from '@/components/settings/InterfaceSettings.vue'
 
 export default {
   name: 'SettingsView',
@@ -47,11 +52,12 @@ export default {
     EmailSettings,
     SecuritySettings,
     Misc,
-    NetworkStatus
+    NetworkStatus,
+    InterfaceSettings
   },
   data: () => ({
     activeTab: 'user',
-    tabs: ['user', 'security', 'email', 'misc']
+    tabs: ['user', 'security', 'email', 'misc', 'interface']
   }),
   async mounted() {
     this.activeTab = this.$route.params.activeTab
