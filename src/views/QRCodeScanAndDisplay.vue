@@ -14,10 +14,13 @@
         <div class="bg-white shadow py-3 px-4">
           <q-r-code-scan />
         </div>
+        <!-- Decode Section -->
+
         <!-- Generate QR Section -->
         <div class="bg-white shadow py-3 px-4 mt-4">
           <q-r-code-display />
         </div>
+        <!-- Generate QR Section -->
       </div>
     </section>
   </div>

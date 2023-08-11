@@ -16,6 +16,7 @@
 
     <!-- File Capture -->
     <qrcode-capture :key="captureKey" @decode="onDecode" />
+    <!-- File Capture -->
 
     <!-- Camera Stream -->
     <qrcode-stream
@@ -24,6 +25,8 @@
       @decode="onDecode"
       @init="onInit"
     />
+    <!-- Camera Stream -->
+
     <p class="text-xl mt-2">Decoded Information: {{ decodedContent }}</p>
   </div>
 </template>

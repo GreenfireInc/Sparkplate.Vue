@@ -7,10 +7,15 @@
 <template>
   <div>
     <p class="text-xl mb-1">QR Code Display</p>
+
+    <!-- Input field for the user to enter text for the QR code -->
     <div class="input-field col-md-6 pl-0 mt-4">
       <label for="settings_user-fname"> Enter text for QR Code </label>
       <input v-model="qrInput" type="text" />
     </div>
+    <!-- Input field for the user to enter text for the QR code -->
+
+    <!-- Button to trigger the QR code generation -->
     <button
       class="py-1 px-5 mt-1 rounded text-white hover:shadow bg-blue-600 hover:bg-blue-700'"
       type="submit"
@@ -18,7 +23,13 @@
     >
       Display QR
     </button>
+    <!-- Button to trigger the QR code generation -->
+
+    <!-- Display the generated QR code image -->
     <img v-if="qrData" :src="qrData" alt="Generated QR Code" />
+    <!-- Display the generated QR code image -->
+
+    <!-- Buttons to download the generated QR code in different formats -->
     <div class="flex flex-col items-start">
       <button
         v-if="qrData"
@@ -34,6 +45,7 @@
       >
         Download SVG
       </button>
+      <!-- Buttons to download the generated QR code in different formats -->
     </div>
   </div>
 </template>
