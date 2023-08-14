@@ -38,6 +38,25 @@
         >Total Assets: {{ totalAssets }}</span
       >
     </div>
+    <div class="mt-2">
+      <label
+        class="relative inline-flex items-center cursor-pointer"
+        @click="toggleDarkMode"
+      >
+        <div
+          :class="{ 'bg-gray-600': darkMode, 'bg-blue-800': !darkMode }"
+          class="w-10 h-5 rounded-full transition-colors"
+        >
+          <span
+            :class="{ 'translate-x-full': darkMode }"
+            class="block w-5 h-5 bg-gray-200 rounded-full shadow transform transition-transform"
+          ></span>
+        </div>
+        <span class="ml-2">
+          {{ darkMode ? 'Light Mode' : 'Dark Mode' }}
+        </span>
+      </label>
+    </div>
   </nav>
 </template>
 
@@ -46,6 +65,11 @@ import { mapActions, mapGetters } from 'vuex'
 import * as SparkMD5 from 'spark-md5'
 export default {
   name: 'NavBar',
+  data() {
+    return {
+      darkMode: false
+    }
+  },
   computed: {
     ...mapGetters({
       menuType: 'menuType',
@@ -71,6 +95,15 @@ export default {
     ...mapActions(['changeMenuType']),
     logoutUser() {
       this.$store.dispatch('accounts/logout', this.user.id)
+    },
+    toggleDarkMode() {
+      this.darkMode = !this.darkMode
+
+      if (this.darkMode) {
+        document.body.classList.add('dark')
+      } else {
+        document.body.classList.remove('dark')
+      }
     }
   }
 }

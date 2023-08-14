@@ -15,6 +15,12 @@
       </span>
       <span class="link-text">Settings</span>
     </router-link>
+    <router-link v-ripple to="/web3connect">
+      <span class="icon">
+        <web3-connect-icon :color="pathColor('web3connect')" />
+      </span>
+      <span class="link-text">Web3Connect</span>
+    </router-link>
     <router-link v-ripple to="/settings/user">
       <span class="icon">
         <settings-icon :color="pathColor('settings')" />
@@ -30,13 +36,15 @@ import { mapGetters } from 'vuex'
 import FilesIcon from '../icons/Files.vue'
 import SettingsIcon from '../icons/Settings.vue'
 import WalletIcon from '../icons/Wallet.vue'
+import Web3ConnectIcon from '../icons/Web3Connect.vue'
 
 export default {
   name: 'SideNav',
   components: {
     FilesIcon,
     SettingsIcon,
-    WalletIcon
+    WalletIcon,
+    Web3ConnectIcon
   },
   computed: {
     ...mapGetters(['menuType'])
