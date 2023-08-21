@@ -1,6 +1,8 @@
 <template>
   <nav
-    class="flex justify-between items-center bg-blue-600 text-white px-5 h-16 w-100"
+    class="flex justify-between w-full items-center text-white px-5 h-16 w-100"
+    :class="[darkModeEnabled ? 'bg-gray-700' : 'bg-blue-600 ']"
+    :style="headerStyles"
   >
     <div class="flex items-center">
       <div class="mr-5">
@@ -38,18 +40,37 @@
         >Total Assets: {{ totalAssets }}</span
       >
     </div>
+    <button
+      v-tooltip="{
+        content: toggleDarkMode ? 'Disable Dark Mode' : 'Enable Dark Mode'
+      }"
+      class="tooltip-custom"
+    >
+      <toggle-button
+        v-model="toggleDarkMode"
+        :color="{ checked: 'rgb(30 41 59)', unchecked: 'rgb(148 163 184)' }"
+        :switch-color="{
+          checked: 'rgb(255 255 255)',
+          unchecked: 'rgb(21 94 117)'
+        }"
+        :sync="true"
+        :labels="false"
+      />
+    </button>
   </nav>
 </template>
 
 <script>
-import { mapActions, mapGetters } from 'vuex'
+import { mapActions, mapGetters, mapMutations } from 'vuex'
 import * as SparkMD5 from 'spark-md5'
 export default {
   name: 'NavBar',
   computed: {
     ...mapGetters({
       menuType: 'menuType',
-      totalAssetsValue: 'wallets/totalAssetsValue'
+      totalAssetsValue: 'wallets/totalAssetsValue',
+      darkModeEnabled: 'userSettings/isDarkModeEnabled',
+      getHeaderColor: 'userSettings/getHeaderColor'
     }),
     user() {
       return this.loggedUserData
@@ -65,10 +86,28 @@ export default {
     totalAssets() {
       const total = this.totalAssetsValue
       return this.formatCurrencyWithSettings(total, 2)
+    },
+    /*
+    Connected the store state for the dark mode toggle to the local component.
+    */
+    toggleDarkMode: {
+      get() {
+        return this.darkModeEnabled
+      },
+      set(value) {
+        this.setDarkMode(value)
+      }
+    },
+    /*
+    I've established a binding between the local value for the header background color and the state within the store.
+    */
+    headerStyles() {
+      return `background-color: ${this.getHeaderColor}`
     }
   },
   methods: {
     ...mapActions(['changeMenuType']),
+    ...mapMutations('userSettings', ['setDarkMode']),
     logoutUser() {
       this.$store.dispatch('accounts/logout', this.user.id)
     }

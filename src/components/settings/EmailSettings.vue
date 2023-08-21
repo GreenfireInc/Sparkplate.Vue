@@ -4,8 +4,8 @@
       <div class="col-md-9 mb-3">
         <p class="text-xl">Email Configuration</p>
         <small class="text-muted">
-          Fill-out This Form to Setup Your Email Configuration on Your Sparkplate
-          Account.
+          Fill-out This Form to Setup Your Email Configuration on Your
+          Sparkplate Account.
         </small>
       </div>
     </div>
