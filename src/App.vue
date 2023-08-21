@@ -11,7 +11,8 @@ Description: App.vue is the main parent component of the entire client side appl
       <side-nav />
       <main
         style="min-width: 90%"
-        class="flex-grow bg-gray-100 relative h-full"
+        class="flex-grow relative h-full"
+        :class="[darkModeEnabled ? 'bg-gray-800 text-black' : 'bg-gray-100']"
       >
         <router-view class="flex-grow h-full" />
       </main>
@@ -65,6 +66,7 @@ import SideNav from '@/components/partials/SideNav.vue'
 import DappCallRequest from '@/components/web3Connect/DappCallRequest.vue'
 import KeyboardShortcuts from './components/help/KeyboardShortcuts.vue'
 import About from './views/About.vue'
+import { mapGetters } from 'vuex'
 
 // Mixins
 import toastMixins from './utils/mixins/toastMixins'
@@ -98,6 +100,7 @@ export default {
     helpModalOpen: false
   }),
   computed: {
+    ...mapGetters({ darkModeEnabled: 'userSettings/isDarkModeEnabled' }),
     user() {
       const activeUser = this.$store.state.accounts.active
       return JSON.parse(JSON.stringify(activeUser))

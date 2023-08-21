@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import Directories from '../views/Directories.vue'
 import Test from '../views/Test.vue'
 import Settings from '../views/Settings.vue'
+import QRCodes from '../views/QRCodes.vue'
 
 Vue.use(VueRouter)
 
@@ -27,6 +28,11 @@ const routes = [
     path: '/settings/:activeTab',
     name: 'Settings',
     component: Settings
+  },
+  {
+    path: '/qrcodes',
+    name: 'qrcodes',
+    component: QRCodes
   }
 ]
 

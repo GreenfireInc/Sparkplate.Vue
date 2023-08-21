@@ -1,7 +1,12 @@
 <template>
   <aside
-    :class="menuType"
-    class="flex flex-col items-stretch bg-white shadow-md border-r border-gray-300"
+    :class="[
+      menuType,
+      darkModeEnabled
+        ? 'bg-gray-800 border-gray-700'
+        : 'bg-white border-gray-300'
+    ]"
+    class="flex flex-col items-stretch shadow-md border-r"
   >
     <router-link v-ripple to="/directories">
       <span class="icon">
@@ -15,17 +20,26 @@
       </span>
       <span class="link-text">Settings</span>
     </router-link>
+
     <router-link v-ripple to="/settings/user">
       <span class="icon">
         <settings-icon :color="pathColor('settings')" />
       </span>
       <span class="link-text">Settings</span>
     </router-link>
+
+    <router-link v-ripple to="/qrcodes">
+      <span>
+        <qr-code-icon class="icon" :color="pathColor('qrcodes')" />
+      </span>
+      <span class="link-text">QRCodes</span>
+    </router-link>
   </aside>
 </template>
 
 <script>
 import { mapGetters } from 'vuex'
+import QrCodeIcon from '../icons/QrCode.vue'
 
 import FilesIcon from '../icons/Files.vue'
 import SettingsIcon from '../icons/Settings.vue'
@@ -36,10 +50,15 @@ export default {
   components: {
     FilesIcon,
     SettingsIcon,
-    WalletIcon
+    WalletIcon,
+    QrCodeIcon
   },
   computed: {
-    ...mapGetters(['menuType'])
+    ...mapGetters({
+      menuType: 'menuType',
+      darkModeEnabled: 'userSettings/isDarkModeEnabled',
+      getSideBarIconsColor: 'userSettings/getSideBarIconsColor'
+    })
   },
   data: () => ({
     path: ''
@@ -53,11 +72,19 @@ export default {
     this.path = this.$route.path
   },
   methods: {
+    /*
+    I've established a binding between the local value for the icons color and the state within the store.
+    */
     pathColor(path) {
-      const actualPath = this.path.split('/')[1]
-      return actualPath === `${path}`
-        ? 'rgba(49, 130, 206, var(--bg-opacity))'
-        : 'black'
+      const color = this.getSideBarIconsColor
+      if (color === '#000000') {
+        const actualPath = this.path.split('/')[1]
+        return actualPath === `${path}`
+          ? 'rgba(49, 130, 206, var(--bg-opacity))'
+          : 'black'
+      } else {
+        return color
+      }
     }
   }
 }

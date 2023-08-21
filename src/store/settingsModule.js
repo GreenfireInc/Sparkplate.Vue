@@ -47,7 +47,10 @@ const initialState = () => {
     appToTrayEnabled: false,
     bugTrackingEnabled: false,
     networkSelection,
-    visibilityToggles
+    visibilityToggles,
+    darkModeEnabled: false, // Dark mode flag.
+    headerColor: '#000000', // Default header color.
+    sideBarIconsColor: '#000000' // Default side bar isons color
   }
 }
 
@@ -57,6 +60,15 @@ export default {
   getters: {
     value: (state) => {
       return state.value
+    },
+    isDarkModeEnabled: (state) => {
+      return state.darkModeEnabled
+    },
+    getHeaderColor: (state) => {
+      return state.headerColor
+    },
+    getSideBarIconsColor: (state) => {
+      return state.sideBarIconsColor
     }
   },
   mutations: {
@@ -73,6 +85,15 @@ export default {
     },
     resetSettingsState(state) {
       Object.assign(state, initialState())
+    },
+    setDarkMode(state, value) {
+      state.darkModeEnabled = value
+    },
+    setHeaderColor(state, value) {
+      state.headerColor = value
+    },
+    setSideBarIconsColor(state, value) {
+      state.sideBarIconsColor = value
     }
   },
   actions: {
