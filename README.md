@@ -22,3 +22,6 @@ Most APIs will need keys, secrets, and/or ids to perform as expected. Use the ta
 | [Wallet Connect](https://docs.walletconnect.com/2.0/web/web3wallet/installation) (Connect with dApps as a web3 wallet) | Project ID  | `VITE_WALLET_CONNECT_PROJECT_ID` |
 | [Wert](https://docs.wert.io/docs) (Purchase crypto using the Wert widget)                                              | Partner ID  | `VITE_WERT_PARTNER_ID`           |
 | [Wert](https://docs.wert.io/docs) (Purchase crypto using the Wert widget)                                              | Origin URL  | `VITE_WERT_ORIGIN`               |
+
+
+Test Commit
