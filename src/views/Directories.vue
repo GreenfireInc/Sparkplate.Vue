@@ -1,7 +1,7 @@
 <template>
   <div class="view">
     <h1 class="view-name">Directories</h1>
-    <div class="d-flex justify-center w-100 m-2">
+    <div class="d-flex justify-center m-2">
       <img
         src="/assets/icons/sparkplate.svg"
         width="150"
