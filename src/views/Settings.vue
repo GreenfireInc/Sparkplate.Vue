@@ -28,6 +28,9 @@
       <!-- email content -->
 
       <misc v-if="activeTab === 'misc'" />
+
+      <!-- Interface Tab to change color preferences -->
+      <interface v-if="activeTab === 'interface'" />
     </div>
   </div>
 </template>
@@ -39,6 +42,7 @@ import Misc from '@/components/settings/Misc.vue'
 import SecuritySettings from '@/components/settings/SecuritySettings.vue'
 import EmailSettings from '@/components/settings/EmailSettings.vue'
 import NetworkStatus from '@/components/settings/NetworkStatus.vue'
+import Interface from '@/components/settings/Interface.vue'
 
 export default {
   name: 'SettingsView',
@@ -47,11 +51,12 @@ export default {
     EmailSettings,
     SecuritySettings,
     Misc,
-    NetworkStatus
+    NetworkStatus,
+    Interface
   },
   data: () => ({
     activeTab: 'user',
-    tabs: ['user', 'security', 'email', 'misc']
+    tabs: ['user', 'security', 'email', 'misc', 'interface']
   }),
   async mounted() {
     this.activeTab = this.$route.params.activeTab

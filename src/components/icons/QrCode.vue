@@ -9,6 +9,9 @@
     viewBox="0 0 512 512"
     style="enable-background: new 0 0 512 512"
     xml:space="preserve"
+    :height="height"
+    :width="width"
+    :fill="color"
   >
     <g>
       <g>
@@ -70,8 +73,18 @@
 <script>
 export default {
   props: {
-    color: String,
-    default: () => ''
+    color: {
+      type: String,
+      default: () => ''
+    },
+    height: {
+      type: String,
+      default: () => '24px'
+    },
+    width: {
+      type: String,
+      default: () => '24px'
+    }
   }
 }
 </script>
