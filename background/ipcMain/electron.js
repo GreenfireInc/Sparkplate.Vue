@@ -37,6 +37,10 @@ ipcMain.handle('appGetGPUInfo', () => {
   return app.getGPUInfo('complete')
 })
 
+ipcMain.handle('getHostName', () => {
+  return os.hostname()
+})
+
 ipcMain.handle('appGetReleaseInfo', () => {
   const notesPath = path.join(
     process.env.PUBLIC,

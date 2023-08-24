@@ -59,6 +59,14 @@ contextBridge.exposeInMainWorld('app', {
   openExternal: (url) => {
     ipcRenderer.send('appOpenExternal', url)
   },
+  getHostName: () => {
+    try {
+      const hostname = ipcRenderer.invoke('getHostName')
+      return hostname
+    } catch (error) {
+      console.error(error)
+    }
+  },
   platform: process.platform
 })
 
