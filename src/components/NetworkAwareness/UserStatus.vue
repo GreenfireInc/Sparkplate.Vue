@@ -35,8 +35,9 @@ const initData = () => ({
 })
 
 export default {
-  name: 'MachineInfo',
+  name: 'UserStatus',
   data: initData,
+
   computed: {
     user() {
       return this.loggedUserData
