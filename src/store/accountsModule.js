@@ -207,9 +207,6 @@ export default {
           console.error(err)
         }
       }
-    },
-    async fetchUserName({ state }) {
-      console.log(state)
     }
   }
 }

@@ -51,8 +51,8 @@ export default {
 
     if (this.isOnline) {
       this.hostname = await window.app.getHostName()
-      this.ip = await this.$store.dispatch('accounts/fetchIP')
-      this.username = await this.$store.dispatch('accounts/fetchUsername')
+      this.ip = await window.app.getLocalIP()
+      this.username = await window.app.getUserName()
     }
   }
 }
