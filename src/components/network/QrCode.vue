@@ -7,7 +7,7 @@
   <div class="flex flex-col items-center">
     <input type="file" @change="handleFileChange" />
     <!-- generate if qrCodeDataUrl is filled -->
-    <div class="flex mg">
+    <div class="flex mt-6">
       <img v-if="qrCodeDataUrl" :src="qrCodeDataUrl" alt="QR Code" />
       <p v-else>Upload a VCard to generate a QR Code</p>
     </div>

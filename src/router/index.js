@@ -4,7 +4,7 @@ import Home from '../views/Home.vue'
 import Directories from '../views/Directories.vue'
 import Test from '../views/Test.vue'
 import Settings from '../views/Settings.vue'
-import User from '../views/UserInfo.vue'
+import Network from '../views/NetworkInfo.vue'
 
 Vue.use(VueRouter)
 
@@ -30,9 +30,9 @@ const routes = [
     component: Settings
   },
   {
-    path: '/user',
-    name: 'User',
-    component: User
+    path: '/network',
+    name: 'Network',
+    component: Network
   }
 ]
 

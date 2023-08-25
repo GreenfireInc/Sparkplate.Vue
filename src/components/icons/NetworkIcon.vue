@@ -15,7 +15,7 @@
 
 <script>
 export default {
-  name: 'UserIcon',
+  name: 'NetworkIcon',
   props: {
     color: String,
     default: () => ''

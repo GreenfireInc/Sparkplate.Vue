@@ -1,6 +1,5 @@
 <template>
   <div class="view">
-    <h1 class="view-name">User Details</h1>
     <!-- create tabs to switch from user status and qrcode components -->
     <TabsWrapper class="flex items-center text-xl font-semibold">
       <TabComponent
@@ -25,8 +24,10 @@
 </template>
 
 <script>
-import UserStatus from '@/components/NetworkAwareness/UserStatus.vue'
-import QrCode from '@/components/NetworkAwareness/QrCode.vue'
+// import userStatus from '@/components/networkAwareness/userStatus.vue'
+// import qrCode from '@/components/networkAwareness/qrCode.vue'
+import UserStatus from '@/components/network/NetworkStatus.vue'
+import QrCode from '@/components/network/QrCode.vue'
 
 export default {
   name: 'UserView',
