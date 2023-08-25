@@ -15,6 +15,14 @@
       </span>
       <span class="link-text">Settings</span>
     </router-link>
+    <!-- Added in the new router-link for NetworkAwareness -->
+    <router-link v-ripple to="/network">
+      <span class="icon">
+        <network-icon :color="pathColor('network')" />
+      </span>
+      <span class="link-text">Settings</span>
+    </router-link>
+    <!-- Added in the new router-link for NetworkAwareness -->
     <router-link v-ripple to="/settings/user">
       <span class="icon">
         <settings-icon :color="pathColor('settings')" />
@@ -30,13 +38,15 @@ import { mapGetters } from 'vuex'
 import FilesIcon from '../icons/Files.vue'
 import SettingsIcon from '../icons/Settings.vue'
 import WalletIcon from '../icons/Wallet.vue'
+import NetworkIcon from '../icons/NetworkAwareness.vue' // Import the network icon component
 
 export default {
   name: 'SideNav',
   components: {
     FilesIcon,
     SettingsIcon,
-    WalletIcon
+    WalletIcon,
+    NetworkIcon // Added the new icon component here
   },
   computed: {
     ...mapGetters(['menuType'])
