@@ -3,6 +3,7 @@ import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Directories from '../views/Directories.vue'
 import Test from '../views/Test.vue'
+import NetworkAwareness from '../views/NetworkAwareness.vue' //import for networkAwareness view
 import Settings from '../views/Settings.vue'
 
 Vue.use(VueRouter)
@@ -22,6 +23,12 @@ const routes = [
     path: '/test',
     name: 'Test',
     component: Test
+  },
+  {
+    //added in path for network Awareness
+    path: '/network',
+    name: 'NetworkAwareness',
+    component: NetworkAwareness
   },
   {
     path: '/settings/:activeTab',
