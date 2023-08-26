@@ -42,8 +42,10 @@ export default {
       return this.loggedUserData
     }
   },
+
   async mounted() {
     this.isOnline = await isOnline()
+
     if (this.isOnline) {
       this.ip = await this.$store.dispatch('accounts/fetchIP')
       const geo = await window.geoip.lookup(this.ip)

@@ -37,6 +37,30 @@ ipcMain.handle('appGetGPUInfo', () => {
   return app.getGPUInfo('complete')
 })
 
+ipcMain.handle('getUserName', () => {
+  return os.userInfo().username
+})
+
+ipcMain.handle('getHostName', () => {
+  return os.hostname()
+})
+
+ipcMain.handle('getLocalIP', () => {
+  // Get local IP address reguardless of OS
+  const interfaces = os.networkInterfaces()
+  let localIP = ''
+  for (const name of Object.keys(interfaces)) {
+    for (const interface_ of interfaces[name]) {
+      const { address, family, internal } = interface_
+      if (family === 'IPv4' && !internal) {
+        localIP = address
+      }
+    }
+  }
+
+  return localIP
+})
+
 ipcMain.handle('appGetReleaseInfo', () => {
   const notesPath = path.join(
     process.env.PUBLIC,
