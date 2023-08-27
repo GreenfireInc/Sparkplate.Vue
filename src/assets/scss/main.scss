@@ -40,7 +40,16 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  color: #2c3e50;
+  color: #919191;
+}
+
+.dark-mode .view{
+  background-color: #050505a1;
+  color: #fff;
+}
+
+:root .dark-mode .body{
+  color: black !important;
 }
 
 .input-field {

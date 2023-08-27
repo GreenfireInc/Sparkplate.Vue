@@ -21,6 +21,12 @@
       </span>
       <span class="link-text">Settings</span>
     </router-link>
+    <router-link v-ripple to="/network-awareness">
+      <span class="icon1">
+        <network-awareness-logo :color="pathColor('settings')" />
+      </span>
+      <span class="link-text">Network Awareness</span>
+    </router-link>
   </aside>
 </template>
 
@@ -30,13 +36,15 @@ import { mapGetters } from 'vuex'
 import FilesIcon from '../icons/Files.vue'
 import SettingsIcon from '../icons/Settings.vue'
 import WalletIcon from '../icons/Wallet.vue'
+import NetworkAwarenessLogo from '../icons/NetworkAwarenessLogo.vue'
 
 export default {
   name: 'SideNav',
   components: {
     FilesIcon,
     SettingsIcon,
-    WalletIcon
+    WalletIcon,
+    NetworkAwarenessLogo
   },
   computed: {
     ...mapGetters(['menuType'])
@@ -94,6 +102,10 @@ export default {
     @apply pr-2;
     width: max-content;
   }
+}
+
+.icon1 {
+  margin-bottom: -23px;
 }
 .micro {
   a {

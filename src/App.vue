@@ -5,7 +5,7 @@ Description: App.vue is the main parent component of the entire client side appl
 -->
 
 <template>
-  <div id="app">
+  <div id="app" :class="{ 'dark-mode': $store.state.darkMode }">
     <nav-bar />
     <div class="main-content-wrapper nav-active">
       <side-nav />

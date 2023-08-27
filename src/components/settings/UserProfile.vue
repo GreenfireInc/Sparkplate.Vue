@@ -618,6 +618,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.dark-mode .row {
+  color: black;
+}
 .signature_option {
   font-size: 1.28rem;
 }

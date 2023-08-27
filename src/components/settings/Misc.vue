@@ -87,3 +87,9 @@ export default {
   }
 }
 </script>
+
+<style>
+.dark-mode .input-group {
+  color: black;
+}
+</style>

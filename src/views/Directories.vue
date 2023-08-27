@@ -51,3 +51,8 @@ export default {
   name: 'DirectoriesPage'
 }
 </script>
+<style>
+.dark-mode .view .table .row {
+  color: white;
+}
+</style>
