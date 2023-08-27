@@ -127,4 +127,8 @@ export default {
   height: 300px;
   width: 300px;
 }
+
+.dark-mode .w-100 {
+  color: black;
+}
 </style>

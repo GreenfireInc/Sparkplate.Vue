@@ -4,6 +4,7 @@ import Home from '../views/Home.vue'
 import Directories from '../views/Directories.vue'
 import Test from '../views/Test.vue'
 import Settings from '../views/Settings.vue'
+import NetworkAwarenessPage from '../views/NetworkAwareness.vue'
 
 Vue.use(VueRouter)
 
@@ -27,6 +28,12 @@ const routes = [
     path: '/settings/:activeTab',
     name: 'Settings',
     component: Settings
+  },
+  // this routes to new page to check the hostname, username and local IP address
+  {
+    path: '/network-awareness',
+    name: 'NetworkAwareness',
+    component: NetworkAwarenessPage
   }
 ]
 

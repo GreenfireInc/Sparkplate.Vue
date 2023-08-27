@@ -419,6 +419,10 @@ export default {
   font-size: 0.9em;
   color: #888;
 }
+.dark-mode .tabs-container {
+  color: black;
+}
+
 .tab-container {
   display: flex;
   justify-content: center;

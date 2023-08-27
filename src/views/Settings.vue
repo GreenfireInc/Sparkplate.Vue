@@ -3,7 +3,12 @@
     <h1 class="view-name">Settings</h1>
     <network-status />
     <!-- settings tabs -->
-    <TabsWrapper class="flex items-center text-xl font-semibold">
+    <TabsWrapper
+      :class="[
+        'flex items-center text-xl font-semibold',
+        $store.state.darkMode ? 'text-black' : 'text-gray'
+      ]"
+    >
       <TabComponent
         v-for="(tab, tabIndex) in tabs"
         :key="`settings-view_tab-${tabIndex}`"
@@ -28,6 +33,10 @@
       <!-- email content -->
 
       <misc v-if="activeTab === 'misc'" />
+
+      <interface-settings v-if="activeTab === 'interface'" />
+
+      <vcf-import v-if="activeTab === 'vcfimport'" />
     </div>
   </div>
 </template>
@@ -39,6 +48,8 @@ import Misc from '@/components/settings/Misc.vue'
 import SecuritySettings from '@/components/settings/SecuritySettings.vue'
 import EmailSettings from '@/components/settings/EmailSettings.vue'
 import NetworkStatus from '@/components/settings/NetworkStatus.vue'
+import InterfaceSettings from '@/components/settings/InterfaceSettings.vue'
+import VcfImport from '@/components/VcfImport.vue'
 
 export default {
   name: 'SettingsView',
@@ -47,11 +58,14 @@ export default {
     EmailSettings,
     SecuritySettings,
     Misc,
-    NetworkStatus
+    NetworkStatus,
+    VcfImport,
+    InterfaceSettings
   },
   data: () => ({
     activeTab: 'user',
-    tabs: ['user', 'security', 'email', 'misc']
+    tabs: ['user', 'security', 'email', 'misc', 'vcfimport', 'interface'],
+    darkMode: false
   }),
   async mounted() {
     this.activeTab = this.$route.params.activeTab
@@ -59,4 +73,13 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.dark-mode .view {
+  background-color: #11111179;
+  color: #ffffff;
+}
+.dark-mode .view .tab-component {
+  cursor: pointer;
+  color: black;
+}
+</style>

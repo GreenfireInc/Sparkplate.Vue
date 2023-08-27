@@ -24,3 +24,8 @@ export default {
   }
 }
 </script>
+<style>
+.dark-mode .d-flex justify-content-between {
+  color: black;
+}
+</style>

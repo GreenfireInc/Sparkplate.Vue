@@ -15,6 +15,7 @@ import {
   priceConversions,
   getGasPrices
 } from '../factory'
+import darkModeModule from './darkMode'
 
 // testing writing coin price meta info to files
 const coinInfoPath = './src/assets/coininfo.json'
@@ -29,7 +30,8 @@ export default new Vuex.Store({
     },
     coinsInfo: {},
     coinsMeta: {},
-    gasPrices: {}
+    gasPrices: {},
+    darkMode: false
   },
   mutations: {
     setMenuType(state, payload) {
@@ -43,11 +45,17 @@ export default new Vuex.Store({
     },
     setCoinsMeta(state, payload) {
       state.coinsMeta = payload
+    },
+    toggleDarkMode(state) {
+      state.darkMode = !state.darkMode
     }
   },
   actions: {
     changeMenuType({ commit }, payload) {
       commit('setMenuType', payload)
+    },
+    toggleDarkMode({ commit }) {
+      commit('toggleDarkMode')
     },
     async fetchCoinsInfo({ getters, commit }) {
       try {
@@ -157,7 +165,8 @@ export default new Vuex.Store({
       })
 
       return walletList
-    }
+    },
+    isDarkMode: (state) => state.isDarkMode
   },
   modules: {
     accounts: accountsModule,
@@ -165,7 +174,8 @@ export default new Vuex.Store({
     contacts: contactModule,
     activities: activityModule,
     userSettings: settingsModule,
-    web3Connections: web3ConnectionModule
+    web3Connections: web3ConnectionModule,
+    darkMode: darkModeModule
   },
   plugins: [
     createPersistedState({
