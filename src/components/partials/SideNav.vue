@@ -22,11 +22,11 @@
       <span class="link-text">Settings</span>
     </router-link>
     <!-- Add a new route and button for the Contact page -->
-    <router-link v-ripple to="/settings/user">
+    <router-link v-ripple to="/contacts">
       <span class="icon">
-        <contact-icon :color="pathColor('contact')" />
+        <contact-icon :color="pathColor('contacts')" />
       </span>
-      <span class="link-text">Contact Us</span>
+      <span class="link-text">Contacts</span>
     </router-link>
   </aside>
 </template>
