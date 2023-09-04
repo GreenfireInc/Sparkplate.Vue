@@ -64,19 +64,19 @@ export default {
 
 <style scoped>
 /* Style for the modal container */
-.modal {
+/* .modal {
   display: none;
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.7);
+  background-color: transparent;
   z-index: 1;
-}
+} */
 
 /* Style for the modal content */
-.modal-content {
+/* .modal-content {
   background-color: #fff;
   margin: 15% auto;
   padding: 20px;
@@ -84,7 +84,7 @@ export default {
   width: 80%;
   max-width: 600px;
   position: relative;
-}
+} */
 
 /* Style for the close button */
 .close {
