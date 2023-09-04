@@ -21,6 +21,7 @@
       </span>
       <span class="link-text">Settings</span>
     </router-link>
+    <!-- Add a new route and button for the Contact page -->
     <router-link v-ripple to="/settings/user">
       <span class="icon">
         <settings-icon :color="pathColor('settings')" />
