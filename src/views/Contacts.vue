@@ -21,7 +21,7 @@
       </table>
 
       <!-- Modal -->
-      <div class="modal" v-if="selectedContact">
+      <div class="modal-background" v-if="selectedContact">
         <div class="modal-content">
           <span class="close" @click="closeModal">&times;</span>
           <h2>Contact Information</h2>
@@ -52,6 +52,7 @@ export default {
   },
   methods: {
     openModal(contact) {
+      console.log('name is selected')
       this.selectedContact = contact
     },
     closeModal() {
