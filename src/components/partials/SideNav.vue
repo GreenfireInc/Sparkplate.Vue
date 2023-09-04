@@ -21,6 +21,12 @@
       </span>
       <span class="link-text">Settings</span>
     </router-link>
+    <router-link v-ripple to="/settings/user">
+      <span class="icon">
+        <settings-icon :color="pathColor('settings')" />
+      </span>
+      <span class="link-text">Settings</span>
+    </router-link>
   </aside>
 </template>
 
