@@ -1,3 +1,11 @@
+<!-- Notes about this component:
+Contributors: Antonio Cruz (TonyBoy56)
+
+Description:
+* Page should server the purpose of allowing a user to run a human-readable domain search, and produce a result of the associated crypto-currency along with its long-form domain address.
+* Removed the left input field from the page
+-->
+
 <template>
   <div class="view">
     <h1 class="view-name">Test</h1>
@@ -9,13 +17,6 @@
               v-model="domainAddress.domain"
               type="text"
               placeholder="Human Readable Domain Address"
-              class="form-control"
-              required
-            />
-            <input
-              v-model="coinTicker"
-              type="text"
-              placeholder="Coin Ticker (e.g., BTC, ETH, XTZ)"
               class="form-control"
               required
             />

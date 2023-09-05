@@ -21,6 +21,13 @@
       </span>
       <span class="link-text">Settings</span>
     </router-link>
+    <!-- Add a new route and button for the Contact page -->
+    <router-link v-ripple to="/contacts">
+      <span class="icon">
+        <contact-icon :color="pathColor('contacts')" />
+      </span>
+      <span class="link-text">Contacts</span>
+    </router-link>
   </aside>
 </template>
 
@@ -30,13 +37,15 @@ import { mapGetters } from 'vuex'
 import FilesIcon from '../icons/Files.vue'
 import SettingsIcon from '../icons/Settings.vue'
 import WalletIcon from '../icons/Wallet.vue'
+import ContactIcon from '../icons/Contact.vue'
 
 export default {
   name: 'SideNav',
   components: {
     FilesIcon,
     SettingsIcon,
-    WalletIcon
+    WalletIcon,
+    ContactIcon
   },
   computed: {
     ...mapGetters(['menuType'])
