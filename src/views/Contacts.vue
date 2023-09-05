@@ -78,37 +78,37 @@ export default {
       contacts: [
         {
           name: 'John Doe',
-          email: 'john@example.com',
+          email: 'john@doe.com',
           address: 'example address',
           company: 'Example Company, Inc'
         },
         {
           name: 'Jack Ryan',
-          email: 'jack@example.com',
+          email: 'jack@tomClancy.com',
           address: 'example address',
           company: 'Example Company, Inc'
         },
         {
           name: 'Lara Croft',
-          email: 'lara@example.com',
+          email: 'lara@tombRaider.com',
           address: 'example address',
           company: 'Example Company, Inc'
         },
         {
           name: 'Soap MacTavish',
-          email: 'soap@example.com',
+          email: 'soap@fng.com',
           address: 'example address',
           company: 'Example Company, Inc'
         },
         {
           name: 'John Price',
-          email: 'john@example.com',
+          email: 'john@captian.com',
           address: 'example address',
           company: 'Example Company, Inc'
         },
         {
           name: 'Handler Walter',
-          email: 'walter@example.com',
+          email: 'walter@armoredCore.com',
           address: 'example address',
           company: 'Example Company, Inc'
         }
