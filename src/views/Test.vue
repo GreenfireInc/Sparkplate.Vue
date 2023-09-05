@@ -12,13 +12,6 @@
               class="form-control"
               required
             />
-            <input
-              v-model="coinTicker"
-              type="text"
-              placeholder="Coin Ticker (e.g., BTC, ETH, XTZ)"
-              class="form-control"
-              required
-            />
           </div>
           <button
             class="py-1 px-5 mt-4 rounded text-white hover:shadow"
