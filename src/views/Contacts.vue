@@ -2,7 +2,6 @@
 * My intention was to create a table that would show possible list of contacts a person may already have.
 * Upon clicking a Contact Name, a modal will appear near the bottom of the page displaying their Name, and Email as contact info.
   - Changes: Plans to have this modal as a popup at the top of the page rather than the bottom.
-  - Include vcf file imports to convey them with a QR code, containing the same contact info.
 
 Changes to the component for better UI/UX:
 * Leverage ContactService.js
@@ -13,6 +12,23 @@ Changes to the component for better UI/UX:
   <div class="view">
     <h1 class="view-name">Contacts</h1>
     <div class="bg-white shadow py-5 px-4 mt-4">
+      <!-- Button for VCF Modal -->
+      <button @click="toggleVcfModal">VCF File Upload</button>
+      <!-- <div class="modal" v-if="isModalVisible"> -->
+      <div class="modal-background" v-if="isModalVisible">
+        <div class="modal-content">
+          <h2>Import VCF File</h2>
+          <input type="file" @change="handleFileUpload" accept=".vcf" />
+          <div v-if="vcfData">
+            <h3>Contact Information</h3>
+            <pre>{{ vcfData }}</pre>
+            <qrcode-vue :value="vcfData"></qrcode-vue>
+          </div>
+          <button @click="toggleVcfModal">&times;</button>
+        </div>
+      </div>
+      <!-- </div> -->
+
       <table class="table">
         <thead class="container">
           <tr class="row">
@@ -24,39 +40,19 @@ Changes to the component for better UI/UX:
           <!-- Loop through contacts to display on the table -->
           <tr class="row" v-for="(contact, index) in contacts" :key="index">
             <td class="col">
-              <button @click="openModal(contact)">{{ contact.name }}</button>
+              <button @click="openContactModal(contact)">
+                {{ contact.name }}
+              </button>
             </td>
             <td class="col">{{ contact.email }}</td>
           </tr>
         </tbody>
       </table>
 
-      <!-- Button for VCF Modal -->
-      <button @click="openModal()">Open VCF Modal</button>
-
-      <!-- VCF Import Modal -->
-      <vcf-import-modal
-        v-if="showVfcModal"
-        @close="showVfcModal = false"
-      ></vcf-import-modal>
-
-      <div class="vcf-import-modal">
-        <div class="modal-content">
-          <h2>Import VCF File</h2>
-          <input type="file" @change="handleFileUpload" accept=".vcf" />
-          <div v-if="vcfData">
-            <h3>Contact Information</h3>
-            <pre>{{ vcfData }}</pre>
-            <qrcode-vue :value="vcfData"></qrcode-vue>
-          </div>
-          <button class="close" @click="closeModal">&times;</button>
-        </div>
-      </div>
-
       <!-- Contacts Modal -->
       <div class="modal-background" v-if="selectedContact">
         <div class="modal-content">
-          <span class="close" @click="closeModal">&times;</span>
+          <span class="close" @click="closeContactModal">&times;</span>
           <h2>Contact Information</h2>
           <div><strong>Name:</strong> {{ selectedContact.name }}</div>
           <div><strong>Email:</strong> {{ selectedContact.email }}</div>
@@ -77,7 +73,7 @@ export default {
   },
   data() {
     return {
-      showVfcModal: false,
+      isModalVisible: false,
       vcfData: null,
       contacts: [
         { name: 'John Doe', email: 'john@example.com' },
@@ -103,12 +99,14 @@ export default {
         reader.readAsText(file)
       }
     },
-    openModal(contact) {
+    openContactModal(contact) {
       this.selectedContact = contact
     },
-    closeModal() {
+    toggleVcfModal() {
+      this.isModalVisible = !this.isModalVisible
+    },
+    closeContactModal() {
       this.selectedContact = null
-      this.$emit('close')
     }
   }
 }
