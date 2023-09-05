@@ -1,3 +1,10 @@
+<!-- Notes about this component:
+* My intention was to create a table that would a possible list of contacts a person may already have.
+* Upon clicking a Contact Name, a modal will appear near the bottom of the page displaying their Name, and Email as contact info.
+  - Changes: Plans to have this modal as a popup at the top of the page rather than the bottom.
+  - Include vcf file imports to convey them with a QR code, containing the same contact info.
+-->
+
 <template>
   <div class="view">
     <h1 class="view-name">Contacts</h1>
