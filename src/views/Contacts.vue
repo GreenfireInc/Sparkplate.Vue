@@ -1,5 +1,8 @@
 <!-- Notes about this component:
-* My intention was to create a table that would show possible list of contacts a person may already have.
+Contributors: Antonio Cruz (TonyBoy56)
+
+Description:
+* My intention was to create a table that would show a possible list of contacts a signed in user may already have.
 * Upon clicking a Contact Name, a modal will appear near the bottom of the page displaying their Name, and Email as contact info.
   - Changes: Plans to have this modal as a popup at the top of the page rather than the bottom.
 
@@ -12,9 +15,7 @@ Changes to the component for better UI/UX:
   <div class="view">
     <h1 class="view-name">Contacts</h1>
     <div class="bg-white shadow py-5 px-4 mt-4">
-      <!-- Button for VCF Modal -->
       <button @click="toggleVcfModal">VCF File Upload</button>
-      <!-- <div class="modal" v-if="isModalVisible"> -->
       <div class="modal-background" v-if="isModalVisible">
         <div class="modal-content">
           <h2>Import VCF File</h2>
@@ -24,11 +25,9 @@ Changes to the component for better UI/UX:
             <pre>{{ vcfData }}</pre>
             <qrcode-vue :value="vcfData"></qrcode-vue>
           </div>
-          <button @click="toggleVcfModal">&times;</button>
+          <button class="close" @click="toggleVcfModal">&times;</button>
         </div>
       </div>
-      <!-- </div> -->
-
       <table class="table">
         <thead class="container">
           <tr class="row">
@@ -48,14 +47,15 @@ Changes to the component for better UI/UX:
           </tr>
         </tbody>
       </table>
-
       <!-- Contacts Modal -->
       <div class="modal-background" v-if="selectedContact">
         <div class="modal-content">
-          <span class="close" @click="closeContactModal">&times;</span>
+          <button class="close" @click="closeContactModal">&times;</button>
           <h2>Contact Information</h2>
           <div><strong>Name:</strong> {{ selectedContact.name }}</div>
           <div><strong>Email:</strong> {{ selectedContact.email }}</div>
+          <div><strong>Address:</strong> {{ selectedContact.address }}</div>
+          <div><strong>Company:</strong> {{ selectedContact.company }}</div>
         </div>
       </div>
     </div>
@@ -63,7 +63,6 @@ Changes to the component for better UI/UX:
 </template>
 
 <script>
-// import { VcfImportModal } from '@/service/VcfImportModal.vue'
 import QrcodeVue from 'vue-qrcode'
 
 export default {
@@ -75,15 +74,45 @@ export default {
     return {
       isModalVisible: false,
       vcfData: null,
+      selectedContact: null,
       contacts: [
-        { name: 'John Doe', email: 'john@example.com' },
-        { name: 'Jack Ryan', email: 'jack@example.com' },
-        { name: 'Lara Croft', email: 'lara@example.com' },
-        { name: 'Soap MacTavish', email: 'soap@example.com' },
-        { name: 'John Price', email: 'john@example.com' },
-        { name: 'Handler Walter', email: 'walter@example.com' }
-      ],
-      selectedContact: null
+        {
+          name: 'John Doe',
+          email: 'john@example.com',
+          address: 'example address',
+          company: 'Example Company, Inc'
+        },
+        {
+          name: 'Jack Ryan',
+          email: 'jack@example.com',
+          address: 'example address',
+          company: 'Example Company, Inc'
+        },
+        {
+          name: 'Lara Croft',
+          email: 'lara@example.com',
+          address: 'example address',
+          company: 'Example Company, Inc'
+        },
+        {
+          name: 'Soap MacTavish',
+          email: 'soap@example.com',
+          address: 'example address',
+          company: 'Example Company, Inc'
+        },
+        {
+          name: 'John Price',
+          email: 'john@example.com',
+          address: 'example address',
+          company: 'Example Company, Inc'
+        },
+        {
+          name: 'Handler Walter',
+          email: 'walter@example.com',
+          address: 'example address',
+          company: 'Example Company, Inc'
+        }
+      ]
     }
   },
   methods: {
@@ -95,15 +124,14 @@ export default {
         reader.onload = (e) => {
           this.vcfData = e.target.result
         }
-
         reader.readAsText(file)
       }
     },
-    openContactModal(contact) {
-      this.selectedContact = contact
-    },
     toggleVcfModal() {
       this.isModalVisible = !this.isModalVisible
+    },
+    openContactModal(contact) {
+      this.selectedContact = contact
     },
     closeContactModal() {
       this.selectedContact = null
