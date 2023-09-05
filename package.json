@@ -7,8 +7,7 @@
   "main": "dist/background/index.cjs",
   "debug": {
     "env": {
-      "//": "change 8081 --> 8080",
-      "VITE_DEV_SERVER_URL": "http://127.0.0.1:8081/"
+      "VITE_DEV_SERVER_URL": "http://127.0.0.1:8080/"
     }
   },
   "scripts": {
