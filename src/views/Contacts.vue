@@ -31,6 +31,28 @@ Changes to the component for better UI/UX:
         </tbody>
       </table>
 
+      <!-- Button for VCF Modal -->
+      <button @click="openModal()">Open VCF Modal</button>
+
+      <!-- VCF Import Modal -->
+      <vcf-import-modal
+        v-if="showVfcModal"
+        @close="showVfcModal = false"
+      ></vcf-import-modal>
+
+      <div class="vcf-import-modal">
+        <div class="modal-content">
+          <h2>Import VCF File</h2>
+          <input type="file" @change="handleFileUpload" accept=".vcf" />
+          <div v-if="vcfData">
+            <h3>Contact Information</h3>
+            <pre>{{ vcfData }}</pre>
+            <qrcode-vue :value="vcfData"></qrcode-vue>
+          </div>
+          <button class="close" @click="closeModal">&times;</button>
+        </div>
+      </div>
+
       <!-- Contacts Modal -->
       <div class="modal-background" v-if="selectedContact">
         <div class="modal-content">
@@ -38,7 +60,6 @@ Changes to the component for better UI/UX:
           <h2>Contact Information</h2>
           <div><strong>Name:</strong> {{ selectedContact.name }}</div>
           <div><strong>Email:</strong> {{ selectedContact.email }}</div>
-          <!-- Generate more contact fields, possibly -->
         </div>
       </div>
     </div>
@@ -46,10 +67,18 @@ Changes to the component for better UI/UX:
 </template>
 
 <script>
+// import { VcfImportModal } from '@/service/VcfImportModal.vue'
+import QrcodeVue from 'vue-qrcode'
+
 export default {
   name: 'ContactsPage',
+  components: {
+    QrcodeVue
+  },
   data() {
     return {
+      showVfcModal: false,
+      vcfData: null,
       contacts: [
         { name: 'John Doe', email: 'john@example.com' },
         { name: 'Jack Ryan', email: 'jack@example.com' },
@@ -62,12 +91,24 @@ export default {
     }
   },
   methods: {
+    handleFileUpload(event) {
+      const file = event.target.files[0]
+      if (file) {
+        const reader = new FileReader()
+
+        reader.onload = (e) => {
+          this.vcfData = e.target.result
+        }
+
+        reader.readAsText(file)
+      }
+    },
     openModal(contact) {
-      console.log('name is selected')
       this.selectedContact = contact
     },
     closeModal() {
       this.selectedContact = null
+      this.$emit('close')
     }
   }
 }
