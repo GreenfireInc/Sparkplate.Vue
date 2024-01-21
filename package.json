@@ -138,7 +138,6 @@
     "eslint-plugin-standard": "^5.0.0",
     "eslint-plugin-vue": "^9.15.1",
     "lint-staged": "^13.2.3",
-    "node-sass": "^6.0.1",
     "patch-package": "^7.0.0",
     "postcss": "^8.4.24",
     "prettier": "3.0.0",
