@@ -80,6 +80,7 @@
     "html2pdf.js": "^0.10.1",
     "i": "^0.3.7",
     "is-online": "^9.0.1",
+    "jquery": "^3.7.1",
     "json2csv": "^5.0.5",
     "jsstore": "^4.5.2",
     "litecore-lib-v5": "^0.15.0",
