@@ -1,25 +1,26 @@
 <template>
-  <!-- This is the HTML section of GamingPage.vue file -->
-  <div>
+  <!-- Your Vue component content here -->
+  <div class="view">
     <!-- Defining the heading content and its className -->
-    <h1 class="GamingTitle">Decentraland Website</h1>
+    <h1 class="view-name">Chess Board Website</h1>
+    <div ref="chessboardContainer"></div>
   </div>
 </template>
 
 <script>
 export default {
-  data() {
-    return {
-      name: 'GamingPage',
-      message: 'Gaming (Chess board) Website'
-    }
+  name: 'GamingPage',
+  mounted() {
+    // Use the chessboardContainer reference
+    console.log(this.$refs.chessboardContainer)
   }
 }
 </script>
 
-<style>
-/* This is the CSS section of GamingPage.vue file  */
-h1.GamingTitle {
-  color: chocolate;
+<style scoped>
+/* Add your custom styles here */
+#chessboard-container {
+  width: 400px;
+  /* Add more styles as needed */
 }
 </style>

@@ -1,25 +1,32 @@
 <template>
   <!-- This is the HTML section of PageTwo.vue file -->
-  <div>
+  <div class="view">
     <!-- Defining the heading content and its className -->
-    <h1 class="Page2Title">Cryptocurrency examples</h1>
+    <h1 class="view-name">Examples</h1>
+    <iframe
+      :src="websiteTwo"
+      width="100%"
+      height="600"
+      frameborder="0"
+      allowfullscreen
+    ></iframe>
   </div>
 </template>
 
 <script>
 export default {
+  name: 'PageTwo',
   data() {
     return {
-      name: 'Page Two',
-      message: 'Cryptocurrency examples'
+      websiteTwo: 'https://www.cryptocurrencychart.com/'
     }
   }
 }
 </script>
 
-<style>
-/* This is the CSS section of PageTwo.vue file  */
-h1.Page2Title {
-  color: chocolate;
+<style scoped>
+iframe {
+  width: 100%;
+  height: 100%;
 }
 </style>

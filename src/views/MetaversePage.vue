@@ -1,31 +1,32 @@
 <template>
   <!-- This is the HTML section of MetaversePage.vue file -->
-  <div>
+  <div class="view">
     <!-- Defining the heading content and its className -->
-    <h1 class="DecentralandTitle">Decentraland Website</h1>
-    <div class="DecentralandWeb">
-      <iframe width="100%" :src="frame1.url"></iframe>
-    </div>
+    <h1 class="view-name">Metaverse Website</h1>
+    <iframe
+      :src="websiteMeta"
+      width="100%"
+      height="600"
+      frameborder="0"
+      allowfullscreen
+    ></iframe>
   </div>
 </template>
 
 <script>
 export default {
+  name: 'MetaversePage',
   data() {
     return {
-      name: 'MetaversePage',
-      message: 'Decentraland Website',
-      frame1: {
-        url: 'https://decentraland.org/auth/login?redirectTo=https%3A%2F%2Fdecentraland.org%2Fplay%2F%3FskipSetup%3Dtrue'
-      }
+      websiteMeta: 'http://localhost:3400/decentraland'
     }
   }
 }
 </script>
 
-<style>
-/* This is the CSS section of Market.vue file  */
-h1.DecentralandTitle {
-  color: chocolate;
+<style scoped>
+iframe {
+  width: 100%;
+  height: 100%;
 }
 </style>
