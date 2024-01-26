@@ -15,6 +15,47 @@
       </span>
       <span class="link-text">Settings</span>
     </router-link>
+
+    <!-- 5 new pages were added in this section-->
+
+    <!-- This router link component belongs to PageOne.vue -->
+    <router-link v-ripple to="/pageone">
+      <span class="icon">
+        <page-one-icon :color="pathColor('test')" />
+      </span>
+      <span class="link-text">Page 1</span>
+    </router-link>
+    <!-- This router link component belongs to PageTwo.vue -->
+    <router-link v-ripple to="/pagetwo">
+      <span class="icon">
+        <page-two-icon :color="pathColor('test')" />
+      </span>
+      <span class="link-text">Page 2</span>
+    </router-link>
+    <!-- This router link component belongs to MarketPage.vue -->
+    <router-link v-ripple to="/marketpage">
+      <span class="icon">
+        <market-icon :color="pathColor('test')" />
+      </span>
+      <span class="link-text">Market</span>
+    </router-link>
+    <!-- This router link component belongs to MetaversePage.vue -->
+    <router-link v-ripple to="/metaversepage">
+      <span class="icon">
+        <metaverse-icon :color="pathColor('test')" />
+      </span>
+      <span class="link-text">Metaverse</span>
+    </router-link>
+    <!-- This router link component belongs to GamingPage.vue -->
+    <router-link v-ripple to="/gamingpage">
+      <span class="icon">
+        <gaming-icon :color="pathColor('test')" />
+      </span>
+      <span class="link-text">Gaming</span>
+    </router-link>
+
+    <!-- 5 New pages section ends here-->
+
     <router-link v-ripple to="/settings/user">
       <span class="icon">
         <settings-icon :color="pathColor('settings')" />
@@ -30,13 +71,23 @@ import { mapGetters } from 'vuex'
 import FilesIcon from '../icons/Files.vue'
 import SettingsIcon from '../icons/Settings.vue'
 import WalletIcon from '../icons/Wallet.vue'
+import PageOneIcon from '../icons/PageOneIcon.vue'
+import PageTwoIcon from '../icons/PageTwoIcon.vue'
+import MarketIcon from '../icons/MarketIcon.vue'
+import MetaverseIcon from '../icons/MetaverseIcon.vue'
+import GamingIcon from '../icons/GamingIcon.vue'
 
 export default {
   name: 'SideNav',
   components: {
     FilesIcon,
     SettingsIcon,
-    WalletIcon
+    WalletIcon,
+    PageOneIcon,
+    PageTwoIcon,
+    MarketIcon,
+    MetaverseIcon,
+    GamingIcon
   },
   computed: {
     ...mapGetters(['menuType'])
