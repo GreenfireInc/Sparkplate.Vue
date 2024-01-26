@@ -1,12 +1,13 @@
 <template>
   <!-- This is the HTML section of PageOne.vue file -->
   <div class="view">
-    <!-- Defining the heading content and its className -->
+    <!-- Defining the heading content and setting an article-type content to describe the meaning of cryptocurrency -->
     <h1 class="view-name">Education</h1>
     <div class="d-flex justify-center align-items-center m-2 pt-10">
       <h3 class="cryptoTitle"><b>What is Cryptocurrency?</b></h3>
     </div>
     <div class="d-flex justify-center align-items-center">
+      <!-- Displaying some coin images related to the topic of education on cryptocurrency -->
       <img
         src="/assets/icons/coin.svg"
         class="digital-coin"
@@ -34,6 +35,7 @@
       />
     </div>
     <div class="d-flex justify-center align-items-center m-2 p-10">
+      <!-- Adding style to the content of the page through HTML attributes -->
       <aside class="text-justify-right" style="display: block">
         <big><b>C</b></big
         >ryptocurrency is a form of digital or virtual currency that operates on
@@ -48,6 +50,7 @@
         <br />
         <br />
         <center>
+          <!-- Extracting one important aspect of cryptocurrency for the user's takeaway purposes -->
           <fragment style="font-style: italic; color: cadetblue"
             >"The decentralized nature of cryptocurrencies ensures transparency,
             immutability, and global accessibility."
@@ -55,6 +58,7 @@
           <br />
           <br />
         </center>
+        <!-- Adding relevant sources for further education on cryptocurency -->
         <fragment>
           For more information about resources that will give you a deeper
           understanding about Cryptocurrency, take a look at the following
@@ -84,6 +88,7 @@ export default {
 </script>
 
 <style>
+/* Adding style to some section on template section such as heading 3 and other classes */
 h3.cryptoTitle {
   font-family: Georgia, 'Times New Roman', Times, serif;
   color: #0f52ba;

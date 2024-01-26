@@ -16,35 +16,37 @@
       <span class="link-text">Settings</span>
     </router-link>
 
-    <!-- New Pages added starts here-->
+    <!-- 5 new pages were added in this section-->
+
+    <!-- This router link component belongs to PageOne.vue -->
     <router-link v-ripple to="/pageone">
       <span class="icon">
         <page-one-icon :color="pathColor('test')" />
       </span>
       <span class="link-text">Page 1</span>
     </router-link>
-
+    <!-- This router link component belongs to PageTwo.vue -->
     <router-link v-ripple to="/pagetwo">
       <span class="icon">
         <page-two-icon :color="pathColor('test')" />
       </span>
       <span class="link-text">Page 2</span>
     </router-link>
-
+    <!-- This router link component belongs to MarketPage.vue -->
     <router-link v-ripple to="/marketpage">
       <span class="icon">
         <market-icon :color="pathColor('test')" />
       </span>
       <span class="link-text">Market</span>
     </router-link>
-
+    <!-- This router link component belongs to MetaversePage.vue -->
     <router-link v-ripple to="/metaversepage">
       <span class="icon">
         <metaverse-icon :color="pathColor('test')" />
       </span>
       <span class="link-text">Metaverse</span>
     </router-link>
-
+    <!-- This router link component belongs to GamingPage.vue -->
     <router-link v-ripple to="/gamingpage">
       <span class="icon">
         <gaming-icon :color="pathColor('test')" />
@@ -52,7 +54,7 @@
       <span class="link-text">Gaming</span>
     </router-link>
 
-    <!-- New Pages added ends here-->
+    <!-- 5 New pages section ends here-->
 
     <router-link v-ripple to="/settings/user">
       <span class="icon">
