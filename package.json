@@ -13,6 +13,8 @@
   "scripts": {
     "dev": "vite",
     "dev:force": "vite --force",
+    "start": "electron .",
+    "pack": "build --dir",
     "build": "cross-env NODE_ENV=production npm run build:vite && electron-builder build --config .electron-builder.config.js",
     "build:dir": "cross-env NODE_ENV=production npm run build:vite && electron-builder build --config .electron-builder.config.js --dir",
     "build:vite": "vite build",

@@ -1,5 +1,5 @@
 module.exports = {
-  appId: 'com.sparkplate.app',
+  appId: 'io.greenfire.sparkplate',
   productName: 'Sparkplate',
   copyright: '2023',
   directories: {
@@ -47,19 +47,20 @@ module.exports = {
     icon: './icons/'
   },
   mac: {
+    identity: 'Greenfire Inc',
+    hardenedRuntime: true,
+    gatekeeperAssess: false,
     category: 'public.app-category.office',
     target: [
       {
         target: 'dmg',
-        arch: ['x64']
+        arch: ['universal']
       }
     ],
+    provisioningProfile: 'SparkplatemacOSApp.provisionprofile',
     icon: './icon.icns',
-    hardenedRuntime: true,
-    entitlements: 'entitlements.mac.plist',
-    extendInfo: {
-      NSMicrophoneUsageDescription: 'Please give us access to your microphone'
-    }
+    entitlements: 'build/entitlements.mac.plist',
+    entitlementsInherit: 'build/entitlements.mac.plist'
   },
   win: {
     target: [
