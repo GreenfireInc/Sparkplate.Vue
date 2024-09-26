@@ -104,6 +104,7 @@
     "vue": "^2.7.14",
     "vue-chartjs": "^3.5.1",
     "vue-click-outside": "^1.1.0",
+    "vue-color": "^2.8.1",
     "vue-country-flag": "^2.3.2",
     "vue-directive-tooltip": "^1.6.3",
     "vue-gtag": "^1.16.1",

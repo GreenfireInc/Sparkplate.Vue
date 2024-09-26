@@ -1,7 +1,5 @@
 <template>
-  <nav
-    class="flex justify-between items-center bg-blue-600 text-white px-5 h-16 w-100"
-  >
+  <nav class="flex justify-between items-center text-white px-5 h-16 w-100">
     <div class="flex items-center">
       <div class="mr-5">
         <svg
@@ -77,6 +75,12 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+nav {
+  background-color: var(
+    --nav-color,
+    #3182ce
+  ); // Fallback to #3182ce if --nav-color is not set
+}
 .user-menu {
   @apply flex items-center relative cursor-pointer;
 

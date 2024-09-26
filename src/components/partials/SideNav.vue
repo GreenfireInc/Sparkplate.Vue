@@ -1,7 +1,7 @@
 <template>
   <aside
     :class="menuType"
-    class="flex flex-col items-stretch bg-white shadow-md border-r border-gray-300"
+    class="flex flex-col items-stretch shadow-md border-r border-gray-300"
   >
     <router-link v-ripple to="/directories">
       <span class="icon">
@@ -64,6 +64,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+aside {
+  background-color: var(--aside-color, #fff);
+}
 .micro,
 .macro {
   height: calc(100vh - 4rem);
