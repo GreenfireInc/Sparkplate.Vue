@@ -1,23 +1,31 @@
 <template>
   <aside
-    :class="menuType"
+    :class="[menuType, 'transition-all duration-200']"
     class="flex flex-col items-stretch bg-white shadow-md border-r border-gray-300"
   >
-    <router-link v-ripple to="/directories">
+    <router-link
+      v-ripple
+      to="/directories"
+      class="transition-colors duration-200"
+    >
       <span class="icon">
         <files-icon :color="pathColor('directories')" />
       </span>
-      <span class="link-text">Settings</span>
+      <span class="link-text">Directories</span>
     </router-link>
 
-    <router-link v-ripple to="/test">
+    <router-link v-ripple to="/test" class="transition-colors duration-200">
       <span class="icon">
         <wallet-icon :color="pathColor('test')" />
       </span>
-      <span class="link-text">Settings</span>
+      <span class="link-text">Test</span>
     </router-link>
 
-    <router-link v-ripple to="/settings/user">
+    <router-link
+      v-ripple
+      to="/settings/user"
+      class="transition-colors duration-200"
+    >
       <span class="icon">
         <settings-icon :color="pathColor('settings')" />
       </span>
@@ -69,9 +77,11 @@ export default {
 .micro,
 .macro {
   height: calc(100vh - 4rem);
+  transition: width 0.2s ease-in-out;
 
   a {
     @apply flex items-center py-3 px-5 font-medium;
+    transition: background-color 0.2s ease-in-out;
 
     &:hover {
       @apply bg-gray-100;
@@ -88,7 +98,9 @@ export default {
     }
   }
 }
+
 .macro {
+  width: 200px;
   .icon {
     @apply mr-3;
   }
@@ -97,8 +109,11 @@ export default {
     width: max-content;
   }
 }
+
 .micro {
+  width: 64px;
   a {
+    @apply justify-center;
     .link-text {
       @apply hidden;
     }

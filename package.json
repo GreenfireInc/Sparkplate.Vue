@@ -28,7 +28,8 @@
   },
   "dependencies": {
     "@airgap/beacon-sdk": "^4.0.3",
-    "@ensdomains/ensjs": "^3.1.0",
+    "@ensdomains/address-encoder": "^0.2.22",
+    "@ensdomains/ensjs": "^2.1.0",
     "@json2csv/node": "^7.0.3",
     "@pdf-lib/fontkit": "^1.1.1",
     "@taquito/rpc": "17.3.2",
@@ -120,7 +121,15 @@
     "vuex-shared-mutations": "^1.0.2",
     "winston": "^3.3.3",
     "xlsx": "^0.17.2",
-    "node-sass": "^6.0.1"
+    "node-sass": "^6.0.1",
+    "assert": "^2.1.0",
+    "buffer": "^6.0.3",
+    "https-browserify": "^1.0.0",
+    "os-browserify": "^0.3.0",
+    "stream-http": "^3.2.0",
+    "url": "^0.11.3",
+    "string_decoder": "^1.3.0",
+    "punycode": "^2.3.1"
   },
   "devDependencies": {
     "@rollup/plugin-alias": "^4.0.2",
@@ -148,7 +157,8 @@
     "vite-plugin-electron": "^0.15.4",
     "vite-plugin-electron-renderer": "^0.14.5",
     "vite-plugin-eslint": "^1.8.1",
-    "yorkie": "^2.0.0"
+    "yorkie": "^2.0.0",
+    "autoprefixer": "^10.4.16"
   },
   "browserslist": [
     "> 1%",
