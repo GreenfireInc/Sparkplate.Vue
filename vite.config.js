@@ -1,5 +1,5 @@
 import { rmSync } from 'node:fs'
-import { join, resolve } from 'path'
+import { join } from 'path'
 import { defineConfig } from 'vite'
 
 // Plugins

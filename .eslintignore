@@ -1,1 +1,5 @@
 public/js/jsstore.worker.js
+vite.config.js
+.electron-builder.config.js
+postcss.config.js
+tailwind.config.js
