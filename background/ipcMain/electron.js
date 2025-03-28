@@ -1,9 +1,15 @@
-/* global __static */
-const { app, dialog, BrowserWindow, Notification, shell, ipcMain } = require('electron')
-const fs = require('fs')
-const os = require('os')
-const path = require('path')
-const { markdown } = require('markdown')
+import {
+  app,
+  dialog,
+  BrowserWindow,
+  Notification,
+  shell,
+  ipcMain
+} from 'electron'
+import fs from 'fs'
+import os from 'os'
+import path from 'path'
+import { markdown } from 'markdown'
 
 // contextBridge.app API
 ipcMain.handle('preloadAppData', () => {
@@ -14,6 +20,11 @@ ipcMain.handle('preloadAppData', () => {
     userDataPath: app.getPath('userData')
   }
 })
+
+ipcMain.handle('appGetFunctional', () => {
+  return process.env.functional
+})
+
 ipcMain.handle('appGetPath', (event, type) => {
   return app.getPath(type)
 })
@@ -27,8 +38,20 @@ ipcMain.handle('appGetGPUInfo', () => {
 })
 
 ipcMain.handle('appGetReleaseInfo', () => {
-  const notesPath = path.join(__static, 'assets', 'releaseNotes', 'releaseNotes.md')
-  const changelogPath = path.join(__static, 'assets', 'changelog', 'changelog.md')
+  
+  const notesPath = path.join(
+    process.env.PUBLIC,
+    'assets',
+    'releaseNotes',
+    'releaseNotes.md'
+  )
+  const changelogPath = path.join(
+    process.env.PUBLIC,
+    'assets',
+    'changelog',
+    'changelog.md'
+  )
+  
   const notes = fs.readFileSync(notesPath, 'utf-8')
   const changelog = fs.readFileSync(changelogPath, 'utf-8')
 
@@ -80,8 +103,10 @@ ipcMain.handle('createWindowForPDF', (event, html, fileName, options) => {
   // setting baseURLForDataURL allows the window to load content
   // from the public/assets directory
   let baseURLForDataURL
-  if (process.env.WEBPACK_DEV_SERVER_URL) {
-    baseURLForDataURL = process.env.WEBPACK_DEV_SERVER_URL
+  
+  if (process.env.VITE_DEV_SERVER_URL) {
+    baseURLForDataURL = process.env.VITE_DEV_SERVER_URL
+    
     // Load the url of the dev server if in development mode
   } else {
     // Load the index.html when not in development
@@ -97,39 +122,48 @@ ipcMain.handle('createWindowForPDF', (event, html, fileName, options) => {
     win.webContents.on('did-finish-load', () => {
       // Printing mode
       if (options.type === 'print') {
-        win.webContents.print(options.settings || _options, (success, failureReason) => {
-          if (!success) reject(failureReason)
-          resolve(success)
-          win.destroy()
-        })
-      } else {
-      // Saving mode
-        win.webContents.printToPDF({ ...options.settings }).then(async data => {
-          if (options.type === 'skip-print') {
-            resolve(data)
+        
+        win.webContents.print(
+          options.settings || _options,
+          (success, failureReason) => {
+            if (!success) reject(failureReason)
+            resolve(success)
             win.destroy()
-          } else {
-            const { filePath, canceled } = await dialog.showSaveDialog({
-              defaultPath: `*/${fileName}`,
-              filters: [{ name: 'PDF', extensions: ['pdf'] }]
-            })
-            if (canceled || fileName === undefined) {
-              reject(new Error('Action canceled.'))
-            }
-            fs.writeFile(filePath, data, err => {
-              if (err) {
-                dialog.showErrorBox('Error!', `${err}`)
-                reject(err)
-              } else {
-                resolve()
-              }
-              win.destroy()
-            })
           }
-        }).catch(err => {
-          reject(new Error('Failed to save as PDF') || err)
-          win.destroy()
-        })
+        )
+      } else {
+        // Saving mode
+        win.webContents
+          .printToPDF({ ...options.settings })
+          .then(async (data) => {
+            if (options.type === 'skip-print') {
+              resolve(data)
+              win.destroy()
+            } else {
+              const { filePath, canceled } = await dialog.showSaveDialog({
+                defaultPath: `*/${fileName}`,
+                filters: [{ name: 'PDF', extensions: ['pdf'] }]
+              })
+              if (canceled || fileName === undefined) {
+                reject(new Error('Action canceled.'))
+              }
+              fs.writeFile(filePath, data, (err) => {
+                if (err) {
+                  dialog.showErrorBox('Error!', `${err}`)
+                  reject(err)
+                } else {
+                  resolve()
+                }
+                win.destroy()
+              })
+            }
+          })
+          .catch((err) => {
+            reject(new Error('Failed to save as PDF') || err)
+            win.destroy()
+          })
+        
+        
       }
     })
     win.webContents.on('did-fail-load', ({ errorDescription }) => {

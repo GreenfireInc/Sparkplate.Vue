@@ -1,5 +1,6 @@
-const { ipcMain } = require('electron')
-const fs = require('fs')
+import { ipcMain } from 'electron'
+import fs from 'fs'
+
 
 ipcMain.handle('fsReadFile', (event, path) => {
   return new Promise((resolve) => {

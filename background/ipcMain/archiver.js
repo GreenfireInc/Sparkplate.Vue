@@ -1,14 +1,7 @@
-const { ipcMain } = require('electron')
-const archiver = require('archiver')
-const archiverZipEncryptable = require('archiver-zip-encryptable')
+import { ipcMain } from 'electron'
+import archiver from '../utils/archiverHelper'
 
 ipcMain.handle('createArchive', async (event, format, options) => {
-  if (options.password && !archiver.isRegisteredFormat('zip-encryptable')) {
-    await registerZipEncryptableFormat()
-  }
-  return archiver.create(format, options)
+  const archive = await archiver.create(format, options)
+  return archive
 })
-
-async function registerZipEncryptableFormat () {
-  await archiver.registerFormat('zip-encryptable', archiverZipEncryptable)
-}

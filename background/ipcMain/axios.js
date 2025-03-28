@@ -6,8 +6,9 @@
 // NOTE: change to window.axios in main.js with tie to Vue.protype.$axios
 // passing data through IPC : https://www.electronjs.org/docs/latest/tutorial/ipc#object-serialization
 // see also https://www.electronjs.org/docs/latest/tutorial/message-ports
-const { default: axios } = require('axios')
-const { ipcMain } = require('electron')
+
+import axios from 'axios'
+import { ipcMain } from 'electron'
 
 ipcMain.handle('axiosGet', async (event, url, options) => {
   try {

@@ -1,7 +1,8 @@
-require('./archiver')
-require('./axios')
-require('./cryptos')
-require('./electron')
-require('./fs')
-require('./geoip')
-require('./minizip')
+import './archiver'
+import './authenticator'
+import './axios'
+import './cryptos'
+import './electron'
+import './fs'
+import './geoip'
+import './minizip'

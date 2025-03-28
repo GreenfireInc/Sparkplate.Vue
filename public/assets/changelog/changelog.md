@@ -1,6 +1,14 @@
-#### New in v0.0.1
+All noteable changes to this project will be documented in this file.
 
-Using Greenery file/folder structure, from the original Vite boilerplate we move
-the folders "dist-electron" and "electron" into /background and modify
-"./package.json", "./tsconfig.json", "./tsconfig.node.json", and "vite.config.ts"
-to reflect this. We have also moved all icons that were in /public to /public/assets/icons.
+The format is base on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/).
+
+## [Unreleased]
+
+## [v1.0.0] - 2023-07-20
+
+### Added
+
+- Boilerplate using Electron, Vite, and VueJS 2.
+- Includes test page for human readable addresses. (Unstoppable Domains, Ethereum Name Service, and Tezos Domains)
+- Removed number of aspects of Greenery
+- In process to upgrade all packages

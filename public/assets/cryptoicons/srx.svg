@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Generator: Adobe Illustrator 25.0.1, SVG Export Plug-In . SVG Version: 6.00 Build 0)  -->
+<svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 64 64" style="enable-background:new 0 0 64 64;" xml:space="preserve">
+<style type="text/css">
+	.st0{fill-rule:evenodd;clip-rule:evenodd;fill:#F8C214;}
+	.st1{fill-rule:evenodd;clip-rule:evenodd;fill:#EC8523;}
+	.st2{fill-rule:evenodd;clip-rule:evenodd;fill:#E03D26;}
+	.st3{fill-rule:evenodd;clip-rule:evenodd;fill:#A62322;}
+</style>
+<g id="surface1">
+	<path class="st0" d="M45.83,8.05L32,0.07v15.97L45.83,8.05z"/>
+	<path class="st1" d="M59.65,16.04L45.83,8.05v15.96L59.65,16.04z"/>
+	<path class="st0" d="M59.65,32V16.04l-13.82,7.98L59.65,32z"/>
+	<path class="st2" d="M18.18,8.05v15.96L32,16.04L18.18,8.05z"/>
+	<path class="st1" d="M32,0.07L18.18,8.05L32,16.04V0.07z"/>
+	<path class="st2" d="M4.35,16.04V32l13.83-7.98L4.35,16.04z"/>
+	<path class="st3" d="M18.18,8.05L4.35,16.04l13.83,7.98V8.05z"/>
+	<path class="st0" d="M32,32l-13.82-7.98v15.97L32,32z"/>
+	<path class="st2" d="M4.35,32v15.96l13.83-7.98L4.35,32z"/>
+	<path class="st1" d="M18.18,24.02L4.35,32l13.83,7.98V24.02z"/>
+	<path class="st3" d="M18.18,39.98L4.35,47.96l13.83,7.98V39.98z"/>
+	<path class="st0" d="M32,63.93l13.83-7.98L32,47.96V63.93z"/>
+	<path class="st1" d="M32,47.96l-13.82,7.98L32,63.93V47.96z"/>
+	<path class="st1" d="M59.65,32l-13.82-7.98v15.96L59.65,32z"/>
+	<path class="st2" d="M59.65,47.96V32l-13.82,7.98L59.65,47.96z"/>
+	<path class="st3" d="M45.83,55.95l13.82-7.98l-13.82-7.98V55.95z"/>
+	<path class="st2" d="M45.83,24.02L32,32l13.83,7.98V24.02z"/>
+	<path class="st2" d="M45.83,39.98L32,47.96l13.83,7.98V39.98z"/>
+</g>
+</svg>
