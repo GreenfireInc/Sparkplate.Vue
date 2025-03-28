@@ -12,6 +12,7 @@ dist
 dist-ssr
 dist-electron
 dist_electron
+
 release
 *.local
 
@@ -29,6 +30,5 @@ release
 package-lock.json
 pnpm-lock.yaml
 yarn.lock
-
 # eslint cache file
 .eslintcache

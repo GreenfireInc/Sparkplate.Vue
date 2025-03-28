@@ -3,15 +3,25 @@
   "description": "Based on Greenery, a Greenfire boilerplate for future products",
   "version": "1.0.0",
   "private": true,
+  "keywords": [
+    "electron",
+    "rollup",
+    "vite",
+    "boilerplate",
+    "vue3",
+    "vue"
+  ],
   "author": "The Greenery team, a subdivision of Greenfire <hello@greenfire.io> (http://greenfire.io)",
   "main": "dist/background/index.cjs",
   "debug": {
     "env": {
       "VITE_DEV_SERVER_URL": "http://127.0.0.1:8080/"
+      
     }
   },
   "scripts": {
     "dev": "vite",
+    
     "dev:force": "vite --force",
     "build": "cross-env NODE_ENV=production npm run build:vite && electron-builder build --config .electron-builder.config.js",
     "build:dir": "cross-env NODE_ENV=production npm run build:vite && electron-builder build --config .electron-builder.config.js --dir",
@@ -184,4 +194,5 @@
     "url": "https://github.com/GreenfireInc/Sparkplate.Vue/issues"
   },
   "homepage": "https://github.com/GreenfireInc/Sparkplate.Vue#readme"
+  
 }

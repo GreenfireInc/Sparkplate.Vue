@@ -1,6 +1,7 @@
 import { ipcMain } from 'electron'
 import fs from 'fs'
 
+
 ipcMain.handle('fsReadFile', (event, path) => {
   return new Promise((resolve) => {
     fs.readFile(path, (err, data) => {
