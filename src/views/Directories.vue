@@ -1,6 +1,6 @@
 <template>
   <div class="view">
-    <h1 class="view-name">Directories</h1>
+    <h1 class="view-name">::Directories::</h1>
     <div class="d-flex justify-center m-2">
       <img
         src="/assets/icons/sparkplate.svg"

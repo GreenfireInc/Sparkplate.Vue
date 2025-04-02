@@ -1,7 +1,6 @@
 <template>
   <div class="view">
-    <h1 class="view-name">::Cryptocurrency::</h1>
-    <br />
+    <h1 class="view-name">Test</h1>
     <section class="mx-auto">
       <div class="mx-auto max-w-xl">
         <form class="mb-6" @submit.prevent="resolveAddress">
