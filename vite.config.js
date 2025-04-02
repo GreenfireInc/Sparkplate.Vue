@@ -1,11 +1,12 @@
 import { rmSync } from 'node:fs'
-import { join, resolve } from 'path'
+import { join } from 'path'
 import { defineConfig } from 'vite'
 
 // Plugins
 import vue from '@vitejs/plugin-vue2'
 import electron from 'vite-plugin-electron'
-import eslintPlugin from 'vite-plugin-eslint'
+import renderer from 'vite-plugin-electron-renderer'
+import eslint from 'vite-plugin-eslint'
 import pkg from './package.json'
 import alias from '@rollup/plugin-alias'
 
@@ -28,21 +29,33 @@ export default defineConfig({
   envPrefix: 'VITE_',
   resolve: {
     alias: {
-      '@': resolve(__dirname, 'src'),
+      '@': '/src',
       crypto: 'crypto-browserify',
-      events: 'events/',
-      path: 'path-browserify',
-      process: 'process/browser',
       stream: 'stream-browserify',
-      util: 'util/'
-    }
+      assert: 'assert',
+      http: 'stream-http',
+      https: 'https-browserify',
+      os: 'os-browserify/browser',
+      url: 'url',
+      buffer: 'buffer',
+      process: 'process/browser',
+      util: 'util',
+      events: 'events',
+      path: 'path-browserify',
+      string_decoder: 'string_decoder',
+      punycode: 'punycode'
+    },
+    dedupe: ['vue']
+  },
+  define: {
+    'process.env': {},
+    global: 'globalThis'
   },
   root: join(__dirname),
   publicDir: 'public',
   plugins: [
     alias(),
     vue(),
-    eslintPlugin(),
     electron([
       {
         // Main-Process entry file of the Electron App.
@@ -97,8 +110,37 @@ export default defineConfig({
           }
         }
       }
-    ])
+    ]),
+    renderer({
+      nodeIntegration: true
+    }),
+    eslint()
   ],
   server,
-  clearScreen: false
+  clearScreen: false,
+  optimizeDeps: {
+    include: [
+      '@ensdomains/address-encoder',
+      '@ensdomains/ensjs',
+      'buffer',
+      'process',
+      'events',
+      'string_decoder',
+      'punycode'
+    ],
+    esbuildOptions: {
+      define: {
+        global: 'globalThis'
+      }
+    }
+  },
+  build: {
+    commonjsOptions: {
+      include: [/node_modules/],
+      transformMixedEsModules: true
+    },
+    rollupOptions: {
+      plugins: []
+    }
+  }
 })

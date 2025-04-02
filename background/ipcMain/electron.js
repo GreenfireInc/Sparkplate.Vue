@@ -38,6 +38,7 @@ ipcMain.handle('appGetGPUInfo', () => {
 })
 
 ipcMain.handle('appGetReleaseInfo', () => {
+  
   const notesPath = path.join(
     process.env.PUBLIC,
     'assets',
@@ -50,6 +51,7 @@ ipcMain.handle('appGetReleaseInfo', () => {
     'changelog',
     'changelog.md'
   )
+  
   const notes = fs.readFileSync(notesPath, 'utf-8')
   const changelog = fs.readFileSync(changelogPath, 'utf-8')
 
@@ -101,8 +103,10 @@ ipcMain.handle('createWindowForPDF', (event, html, fileName, options) => {
   // setting baseURLForDataURL allows the window to load content
   // from the public/assets directory
   let baseURLForDataURL
+  
   if (process.env.VITE_DEV_SERVER_URL) {
     baseURLForDataURL = process.env.VITE_DEV_SERVER_URL
+    
     // Load the url of the dev server if in development mode
   } else {
     // Load the index.html when not in development
@@ -118,6 +122,7 @@ ipcMain.handle('createWindowForPDF', (event, html, fileName, options) => {
     win.webContents.on('did-finish-load', () => {
       // Printing mode
       if (options.type === 'print') {
+        
         win.webContents.print(
           options.settings || _options,
           (success, failureReason) => {
@@ -157,6 +162,8 @@ ipcMain.handle('createWindowForPDF', (event, html, fileName, options) => {
             reject(new Error('Failed to save as PDF') || err)
             win.destroy()
           })
+        
+        
       }
     })
     win.webContents.on('did-fail-load', ({ errorDescription }) => {

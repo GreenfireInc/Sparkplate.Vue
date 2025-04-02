@@ -327,5 +327,6 @@ export default {
     -moz-transform: rotateY(180deg);
     border-radius: 0.5rem !important;
   }
+  
 }
 </style>

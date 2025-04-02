@@ -14,6 +14,7 @@ import VueQrcodeReader from 'vue-qrcode-reader'
 
 import './assets/tailwind.css'
 import './assets/scss/main.scss'
+import './assets/main.css'
 import { Loader } from '@/utils/general/loader'
 import { generateBlob } from '@/utils/general/exportCSV'
 import { exportAsXls } from '@/utils/general/exportXls'

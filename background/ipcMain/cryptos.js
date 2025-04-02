@@ -8,6 +8,7 @@ ipcMain.handle('generateMnemonic', async (event, mnemonicPhrase = null) => {
   return { phrase, seed }
 })
 
+
 ipcMain.handle('cryptosGenerateWallet', async (event, params) => {
   const { coinTicker } = params
   const cryptoLib = cryptos[coinTicker.toLowerCase()]
@@ -35,6 +36,7 @@ ipcMain.handle('cryptosGetBalance', async (event, params) => {
   const wallet = await cryptoLib.getBalance(params)
   return wallet
 })
+
 
 ipcMain.handle('cryptosGetBalances', async (event, params) => {
   const coinTicker = params.crypto.toLowerCase()
