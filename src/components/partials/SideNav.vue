@@ -9,12 +9,14 @@
       </span>
       <span class="link-text">Settings</span>
     </router-link>
+
     <router-link v-ripple to="/test">
       <span class="icon">
         <wallet-icon :color="pathColor('test')" />
       </span>
       <span class="link-text">Settings</span>
     </router-link>
+
     <router-link v-ripple to="/settings/user">
       <span class="icon">
         <settings-icon :color="pathColor('settings')" />
